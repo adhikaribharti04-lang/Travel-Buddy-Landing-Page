@@ -1,7 +1,108 @@
 <!DOCTYPE html>
-<html><head><title>Success</title><link rel="stylesheet" href="style.css"></head>
-<body><div class="container">
-<h1>✔</h1>
-<h2>Account Created Successfully!</h2>
-<a href="login.html"><button>Continue</button></a>
-</div></body></html>
+<html>
+<head>
+<title>Success</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:linear-gradient(
+135deg,
+#84fab0,
+#8fd3f4
+);
+}
+
+.card{
+width:340px;
+padding:35px;
+text-align:center;
+
+background:white;
+
+border-radius:30px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.check{
+width:100px;
+height:100px;
+
+margin:auto;
+margin-bottom:20px;
+
+background:#22c55e;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:50px;
+color:white;
+}
+
+h2{
+color:#333;
+margin-bottom:15px;
+}
+
+p{
+color:#666;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+.btn{
+display:block;
+text-decoration:none;
+
+padding:15px;
+
+background:#22c55e;
+
+border-radius:25px;
+
+color:white;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="check">✓</div>
+
+<h2>Registration Successful!</h2>
+
+<p>
+Your travel account is ready.
+Start exploring amazing destinations.
+</p>
+
+<a href="success.html" class="btn">
+Explore Now 🌍
+</a>
+
+</div>
+
+</body>
+</html>
