@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Email Template</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0D1B2A;
+      font-family: 'DM Sans', sans-serif;
+      color: #E8E0D4;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 16px;
+    }
+
+    .email-wrapper {
+      width: 100%;
+      max-width: 620px;
+    }
+
+    /* ── HEADER ── */
+    .email-header {
+      background: linear-gradient(160deg, #1A3A5C 0%, #0D1B2A 60%);
+      border-radius: 16px 16px 0 0;
+      padding: 48px 40px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(212,175,100,0.2);
+      border-bottom: none;
+    }
+
+    .compass-ring {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 2px solid rgba(212,175,100,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+    .compass-ring::before {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 1px dashed rgba(212,175,100,0.3);
+    }
+    .compass-icon { font-size: 36px; }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #D4AF64;
+      margin-bottom: 6px;
+    }
+
+    .header-tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(232,224,212,0.45);
+    }
+
+    /* ── HERO ── */
+    .hero-section {
+      background: linear-gradient(180deg, #0D1B2A 0%, #112436 100%);
+      padding: 52px 40px 44px;
+      text-align: center;
+      border-left: 1px solid rgba(212,175,100,0.15);
+      border-right: 1px solid rgba(212,175,100,0.15);
+    }
+
+    .destination-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #D4AF64;
+      margin-bottom: 14px;
+    }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: #F0EBE2;
+      margin-bottom: 10px;
+    }
+    .hero-headline span {
+      color: #D4AF64;
+      font-style: italic;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(232,224,212,0.6);
+      line-height: 1.7;
+      margin: 20px auto 0;
+      max-width: 420px;
+    }
+
+    /* ── DIVIDER ── */
+    .horizon-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 40px;
+      margin: 0;
+      background: #112436;
+      border-left: 1px solid rgba(212,175,100,0.15);
+      border-right: 1px solid rgba(212,175,100,0.15);
+    }
+    .horizon-divider .line { flex: 1; height: 1px; background: rgba(212,175,100,0.25); }
+    .horizon-divider .dot { width: 5px; height: 5px; border-radius: 50%; background: #D4AF64; }
+
+    /* ── BODY ── */
+    .email-body {
+      background: #112436;
+      padding: 40px 40px 36px;
+      border-left: 1px solid rgba(212,175,100,0.15);
+      border-right: 1px solid rgba(212,175,100,0.15);
+    }
+
+    .greeting {
+      font-size: 16px;
+      font-weight: 500;
+      color: #E8E0D4;
+      margin-bottom: 16px;
+    }
+
+    .body-text {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(232,224,212,0.75);
+      margin-bottom: 16px;
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: rgba(212,175,100,0.07);
+      border-left: 3px solid #D4AF64;
+      border-radius: 0 8px 8px 0;
+      padding: 18px 20px;
+      margin: 28px 0;
+    }
+    .highlight-box p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(232,224,212,0.8);
+      font-style: italic;
+    }
+
+    /* ── TRIP DETAILS ── */
+    .trip-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 28px 0;
+    }
+    .detail-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(212,175,100,0.15);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .detail-card .label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #D4AF64;
+      margin-bottom: 6px;
+    }
+    .detail-card .value {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: #F0EBE2;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      padding: 10px 0 8px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #C9A84C, #D4AF64);
+      color: #0D1B2A;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 16px 44px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+    .cta-note {
+      font-size: 12px;
+      color: rgba(232,224,212,0.35);
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    .email-footer {
+      background: #0A1520;
+      border: 1px solid rgba(212,175,100,0.15);
+      border-top: 1px solid rgba(212,175,100,0.2);
+      border-radius: 0 0 16px 16px;
+      padding: 30px 40px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-nav a {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(232,224,212,0.4);
+      text-decoration: none;
+    }
+    .footer-nav a:hover { color: #D4AF64; }
+
+    .footer-divider { width: 40px; height: 1px; background: rgba(212,175,100,0.25); margin: 0 auto 16px; }
+
+    .footer-text {
+      font-size: 11px;
+      color: rgba(232,224,212,0.25);
+      line-height: 1.8;
+    }
+    .footer-text a { color: rgba(212,175,100,0.5); text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="email-wrapper">
+
+  <!-- HEADER -->
+  <div class="email-header">
+    <div class="compass-ring">
+      <span class="compass-icon">🧭</span>
+    </div>
+    <div class="brand-name">Wanderlust Journeys</div>
+    <div class="header-tagline">Curated Escapes · Since 2018</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-section">
+    <div class="destination-eyebrow">✈ &nbsp; New Destination Unveiled</div>
+    <div class="hero-headline">
+      Discover the<br><span>Hidden Heart</span><br>of Southeast Asia
+    </div>
+    <p class="hero-sub">
+      We have crafted a journey that goes beyond maps —
+      one that leaves a mark not just on your passport, but on your soul.
+    </p>
+  </div>
+
+  <div class="horizon-divider">
+    <div class="line"></div>
+    <div class="dot"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- BODY -->
+  <div class="email-body">
+    <p class="greeting">Dear Traveller,</p>
+
+    <p class="body-text">
+      We are thrilled to bring you something you have been waiting for — that dream trip
+      you kept putting off is finally here. This exclusive 12-night circuit through Vietnam,
+      Cambodia, and Thailand has been crafted for those who seek both authenticity and luxury
+      in equal measure.
+    </p>
+
+    <div class="highlight-box">
+      <p>
+        "Travel is not just about changing places — it is about seeing yourself through
+        a brand new lens. And this time, we will be with you every step of the way."
+      </p>
+    </div>
+
+    <p class="body-text">
+      This package includes private guided tours, rooftop dinners, jungle treks, and sunsets
+      so breathtaking that no camera will ever do them justice.
+    </p>
+
+    <!-- TRIP DETAILS -->
+    <div class="trip-details">
+      <div class="detail-card">
+        <div class="label">Destination</div>
+        <div class="value">Vietnam → Cambodia → Thailand</div>
+      </div>
+      <div class="detail-card">
+        <div class="label">Duration</div>
+        <div class="value">12 Nights · 13 Days</div>
+      </div>
+      <div class="detail-card">
+        <div class="label">Departure</div>
+        <div class="value">15 Aug, 2026</div>
+      </div>
+      <div class="detail-card">
+        <div class="label">Starting From</div>
+        <div class="value">₹1,24,000 / person</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <a class="cta-button" href="#">Book Your Seat Now</a>
+      <span class="cta-note">Limited spots · No hidden charges · Free cancellation till 30 July</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="email-footer">
+    <div class="footer-nav">
+      <a href="#">Our Packages</a>
+      <a href="#">About Us</a>
+      <a href="#">FAQs</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-text">
+      Wanderlust Journeys Pvt. Ltd. · 42, MG Road, Bengaluru – 560001<br>
+      You are receiving this email because you are subscribed to our newsletter.<br>
+      <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
