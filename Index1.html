@@ -1,0 +1,448 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel — Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAF8F3;
+    --green: #1F3D2B;
+    --sage: #7A9B7E;
+    --tan: #E8DCC8;
+    --ink: #1A1A18;
+    --line: rgba(31,61,43,0.18);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Space Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 64px 32px 100px;
+  }
+
+  /* ---------- HEADER / HERO ---------- */
+  .hero{
+    position: relative;
+    text-align: center;
+    padding-bottom: 40px;
+    margin-bottom: 48px;
+    border-bottom: 1.5px solid var(--line);
+  }
+
+  .ticket-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .ticket-row span:nth-child(2){
+    flex:1;
+    margin: 0 14px;
+    border-top: 1px dashed var(--sage);
+    transform: translateY(-1px);
+    position: relative;
+  }
+  .ticket-row span:nth-child(2)::after{
+    content: "✈";
+    position:absolute;
+    left:50%;
+    top:-9px;
+    transform: translateX(-50%) rotate(90deg);
+    background: var(--bg);
+    padding: 0 6px;
+    font-size: 12px;
+    color: var(--green);
+  }
+
+  h1.brand{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 76px;
+    line-height: 0.95;
+    color: var(--green);
+    letter-spacing: -0.01em;
+  }
+
+  .tagline{
+    margin-top: 14px;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.55;
+  }
+
+  .coords{
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--sage);
+    letter-spacing: 0.06em;
+    display:flex;
+    justify-content:center;
+    gap: 18px;
+  }
+
+  /* ---------- SECTION LABELS ---------- */
+  .section{
+    margin-bottom: 52px;
+  }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .dest-tag{
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    background: var(--green);
+    color: var(--bg);
+    padding: 4px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .section-head h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: var(--green);
+  }
+
+  .section-head .rule{
+    flex:1;
+    border-top: 1px solid var(--line);
+    transform: translateY(-6px);
+  }
+
+  /* ---------- MENU ITEM ---------- */
+  .item{
+    display:flex;
+    align-items:baseline;
+    gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px dotted var(--line);
+  }
+
+  .item:last-child{ border-bottom: none; }
+
+  .item-name{
+    font-weight: 700;
+    font-size: 16.5px;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .item-desc{
+    font-size: 13px;
+    color: var(--ink);
+    opacity: 0.6;
+    font-weight: 400;
+  }
+
+  .item-name-wrap{
+    display:flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .leader{
+    flex:1;
+    border-bottom: 1px dotted rgba(31,61,43,0.35);
+    transform: translateY(-5px);
+    min-width: 20px;
+  }
+
+  .price{
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--green);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tag-row{
+    display:flex;
+    gap:6px;
+    margin-top: 4px;
+  }
+
+  .pill{
+    font-size: 9.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: var(--tan);
+    color: var(--green);
+    padding: 2px 7px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .pill.sage{ background: var(--sage); color: var(--bg); }
+
+  /* ---------- TWO COLUMN GRID FOR DRINKS ---------- */
+  .grid-2{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+  }
+
+  /* ---------- FOOTER STAMP ---------- */
+  .footer{
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1.5px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .stamp{
+    border: 1.5px solid var(--green);
+    border-radius: 50%;
+    width: 86px;
+    height: 86px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transform: rotate(-8deg);
+    flex-shrink:0;
+  }
+
+  .stamp-inner{
+    font-family:'Fraunces', serif;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--green);
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .footer-note{
+    font-size: 12px;
+    color: var(--ink);
+    opacity: 0.55;
+    max-width: 420px;
+    line-height: 1.6;
+  }
+
+  .footer-note b{ opacity: 1; color: var(--green); }
+
+  @media (max-width: 640px){
+    h1.brand{ font-size: 52px; }
+    .grid-2{ grid-template-columns: 1fr; }
+    .page{ padding: 40px 20px 70px; }
+    .item-name{ white-space: normal; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="ticket-row">
+      <span>GATE · GARDEN</span>
+      <span></span>
+      <span>TABLE · ANY</span>
+    </div>
+    <h1 class="brand">Travel</h1>
+    <p class="tagline">A menu for the hungry wanderer</p>
+    <div class="coords">
+      <span>BREAKFAST</span>
+      <span>·</span>
+      <span>LUNCH</span>
+      <span>·</span>
+      <span>ALL DAY</span>
+    </div>
+  </header>
+
+  <!-- SMALL PLATES / STARTERS -->
+  <section class="section">
+    <div class="section-head">
+      <span class="dest-tag">First Stop</span>
+      <h2>Small Plates</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="item">
+      <div class="item-name-wrap">
+        <span class="item-name">Charred Sourdough</span>
+        <span class="item-desc">whipped ricotta, honey, rosemary oil</span>
+        <div class="tag-row"><span class="pill">veg</span></div>
+      </div>
+      <span class="leader"></span>
+      <span class="price">₹220</span>
+    </div>
+
+    <div class="item">
+      <div class="item-name-wrap">
+        <span class="item-name">Roasted Beet Hummus</span>
+        <span class="item-desc">tahini, dukkah, warm pita</span>
+        <div class="tag-row"><span class="pill sage">vegan</span></div>
+      </div>
+      <span class="leader"></span>
+      <span class="price">₹240</span>
+    </div>
+
+    <div class="item">
+      <div class="item-name-wrap">
+        <span class="item-name">Crispy Halloumi</span>
+        <span class="item-desc">fig jam, toasted walnut, mint</span>
+      </div>
+      <span class="leader"></span>
+      <span class="price">₹280</span>
+    </div>
+  </section>
+
+  <!-- MAINS -->
+  <section class="section">
+    <div class="section-head">
+      <span class="dest-tag">Main Route</span>
+      <h2>The Mains</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="item">
+      <div class="item-name-wrap">
+        <span class="item-name">Wild Mushroom Risotto</span>
+        <span class="item-desc">parmesan, truffle oil, crisp sage</span>
+        <div class="tag-row"><span class="pill">veg</span></div>
+      </div>
+      <span class="leader"></span>
+      <span class="price">₹420</span>
+    </div>
+
+    <div class="item">
+      <div class="item-name-wrap">
+        <span class="item-name">Herb-Grilled Chicken</span>
+        <span class="item-desc">charred lemon, salsa verde, greens</span>
+      </div>
+      <span class="leader"></span>
+      <span class="price">₹460</span>
+    </div>
+
+    <div class="item">
+      <div class="item-name-wrap">
+        <span class="item-name">Slow-Roasted Veg Bowl</span>
+        <span class="item-desc">quinoa, tahini drizzle, pickled onion</span>
+        <div class="tag-row"><span class="pill sage">vegan</span></div>
+      </div>
+      <span class="leader"></span>
+      <span class="price">₹380</span>
+    </div>
+
+    <div class="item">
+      <div class="item-name-wrap">
+        <span class="item-name">Pan-Seared Salmon</span>
+        <span class="item-desc">citrus butter, asparagus, herb rice</span>
+      </div>
+      <span class="leader"></span>
+      <span class="price">₹540</span>
+    </div>
+  </section>
+
+  <!-- DRINKS -->
+  <section class="section">
+    <div class="section-head">
+      <span class="dest-tag">Refuel</span>
+      <h2>Drinks</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="item">
+          <div class="item-name-wrap"><span class="item-name">Flat White</span></div>
+          <span class="leader"></span>
+          <span class="price">₹150</span>
+        </div>
+        <div class="item">
+          <div class="item-name-wrap"><span class="item-name">Cold Brew</span></div>
+          <span class="leader"></span>
+          <span class="price">₹170</span>
+        </div>
+      </div>
+      <div>
+        <div class="item">
+          <div class="item-name-wrap"><span class="item-name">Hibiscus Iced Tea</span></div>
+          <span class="leader"></span>
+          <span class="price">₹160</span>
+        </div>
+        <div class="item">
+          <div class="item-name-wrap"><span class="item-name">Fresh Mint Lemonade</span></div>
+          <span class="leader"></span>
+          <span class="price">₹140</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SWEET -->
+  <section class="section">
+    <div class="section-head">
+      <span class="dest-tag">Last Stop</span>
+      <h2>Something Sweet</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="item">
+      <div class="item-name-wrap">
+        <span class="item-name">Basque Burnt Cheesecake</span>
+        <span class="item-desc">salted caramel, sea salt</span>
+      </div>
+      <span class="leader"></span>
+      <span class="price">₹260</span>
+    </div>
+
+    <div class="item">
+      <div class="item-name-wrap">
+        <span class="item-name">Dark Chocolate Torte</span>
+        <span class="item-desc">espresso cream, candied orange</span>
+        <div class="tag-row"><span class="pill">veg</span></div>
+      </div>
+      <span class="leader"></span>
+      <span class="price">₹280</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="stamp">
+      <div class="stamp-inner">Bon<br>Voyage</div>
+    </div>
+    <p class="footer-note">
+      <b>Travel</b> — locally sourced, globally inspired.<br>
+      Ask your server about today's seasonal route.
+    </p>
+  </div>
+
+</div>
+
+</body>
+  </html>                          
